@@ -1,4 +1,4 @@
-# FuelFlow - Personalized Meal Recommendations for Purdue Women
+# FlowFuel - Personalized Meal Recommendations for Purdue Women
 
 FuelFlow is a React-based web application that provides personalized meal recommendations for Purdue women based on their menstrual cycle phase. The app integrates with Purdue dining court data and uses AI to analyze meal photos and provide nutritional insights.
 
