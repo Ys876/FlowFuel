@@ -1,0 +1,22 @@
+name: Dining scraper
+
+on:
+  schedule:
+    - cron: "0 10 * * *" # 10:00 UTC daily (~5-6am ET)
+  workflow_dispatch: {}
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - working-directory: backend
+        run: npm install
+      - working-directory: backend
+        run: npm run scrape
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}

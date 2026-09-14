@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test-and-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Run tests
+        run: CI=true npm test -- --watchAll=false
+      - name: Build
+        run: CI=true DISABLE_ESLINT_PLUGIN=true npm run build
+      - name: Dependency audit (fail on high severity)
+        # Allowlist in .audit-ci.json covers known build-tooling-only advisories
+        # (svgo/postcss/webpack chain used only by `react-scripts build`, never
+        # shipped in the browser bundle or serverless functions) — see README.
+        run: npx audit-ci --config .audit-ci.json --skip-dev

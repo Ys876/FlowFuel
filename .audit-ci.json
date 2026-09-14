@@ -1,0 +1,19 @@
+{
+  "$schema": "https://github.com/IBM/audit-ci/raw/main/docs/schema.json",
+  "high": true,
+  "critical": true,
+  "allowlist": [
+    "GHSA-rp65-9cf3-cjxr",
+    "GHSA-7fh5-64p2-3v2j",
+    "GHSA-qx2v-qp2m-jg93",
+    "GHSA-6g55-p6wh-862q",
+    "GHSA-fxqj-rqcc-2cmp",
+    "GHSA-r28c-9q8g-f849",
+    "GHSA-5c6j-r48x-rmvq",
+    "GHSA-qj8w-gfj5-8c6v",
+    "GHSA-2p49-hgcm-8545",
+    "GHSA-w27v-7q3p-w38r",
+    "GHSA-4vpr-x523-8j87",
+    "GHSA-qpx9-hpmf-5gmw"
+  ]
+}

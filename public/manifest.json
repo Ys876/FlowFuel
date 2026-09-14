@@ -1,0 +1,12 @@
+{
+  "short_name": "FlowFuel",
+  "name": "FlowFuel — Dining Budget & Meal Tracker",
+  "icons": [
+    { "src": "icon-192.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "icon-512.png", "type": "image/png", "sizes": "512x512" }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#d6336c",
+  "background_color": "#f7f2f5"
+}

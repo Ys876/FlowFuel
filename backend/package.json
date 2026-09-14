@@ -1,20 +1,13 @@
 {
-  "name": "fuelflow-backend",
+  "name": "flowfuel-scraper",
   "version": "1.0.0",
-  "description": "Backend server for FuelFlow application",
-  "main": "server.js",
+  "description": "Purdue dining scraper — runs on a schedule via GitHub Actions, writes into Supabase.",
+  "main": "scrapers/run.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "scrape": "node scrapers/run.js"
   },
   "dependencies": {
-    "axios": "^1.6.5",
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.7",
-    "express": "^4.21.2",
-    "groq-sdk": "^0.3.0"
-  },
-  "devDependencies": {
-    "nodemon": "^3.0.2"
+    "@supabase/supabase-js": "^2.45.4",
+    "axios": "^1.6.5"
   }
 }

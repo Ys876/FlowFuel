@@ -1,0 +1,133 @@
+:root {
+  --color-bg: #f7f2f5;
+  --color-surface: #ffffff;
+  --color-surface-translucent: rgba(255, 255, 255, 0.72);
+  --color-scrim: rgba(20, 10, 15, 0.35);
+  --color-text: #1c1417;
+  --color-text-muted: #6b5a61;
+  --color-accent: #d6336c;
+  --color-border: rgba(28, 20, 23, 0.08);
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #171113;
+    --color-surface: #241c1f;
+    --color-surface-translucent: rgba(36, 28, 31, 0.72);
+    --color-scrim: rgba(0, 0, 0, 0.5);
+    --color-text: #f5eef1;
+    --color-text-muted: #b8a5ac;
+    --color-accent: #ff5c8a;
+    --color-border: rgba(255, 255, 255, 0.1);
+    color-scheme: dark;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+  -webkit-touch-callout: none;
+  overscroll-behavior-y: none;
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+.app-shell {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: env(safe-area-inset-top);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+.app-content {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 16px 16px calc(88px + env(safe-area-inset-bottom));
+}
+
+.tab-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  padding-bottom: env(safe-area-inset-bottom);
+  background: var(--color-surface-translucent);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid var(--color-border);
+}
+
+.tab-button {
+  flex: 1;
+  min-height: 56px;
+  min-width: 44px;
+  border: none;
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tab-button[data-active="true"] {
+  color: var(--color-accent);
+}
+
+.card {
+  background: var(--color-surface);
+  border-radius: 20px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.scrim {
+  position: fixed;
+  inset: 0;
+  background: var(--color-scrim);
+  touch-action: none;
+}
+
+.sheet {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--color-surface-translucent);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  padding: 20px 16px calc(20px + env(safe-area-inset-bottom));
+  touch-action: none;
+}
+
+.tap-target {
+  min-width: 44px;
+  min-height: 44px;
+  -webkit-tap-highlight-color: transparent;
+}
